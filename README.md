@@ -6,7 +6,7 @@ It is geared towards scientific use cases.
 ## Installation
 
 ``` r
-remotes::install_github(jonas-hag/analysistemplates")
+remotes::install_github("jonas-hag/analysistemplates")
 ```
 
 ## Usage
