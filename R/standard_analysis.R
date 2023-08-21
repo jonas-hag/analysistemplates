@@ -16,26 +16,26 @@ standard_analysis <- function(
     ...) {
   # ensure that the path exists
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
-
+  
   # create folder structure
   dir.create(paste0(path, "/01_Data"))
   dir.create(paste0(path, "/01_Data/01_Raw"))
   dir.create(paste0(path, "/01_Data/02_Clean"))
-
+  
   dir.create(paste0(path, "/02_Analysis"))
   dir.create(paste0(path, "/02_Analysis/01_Scripts"))
   dir.create(paste0(path, "/02_Analysis/02_Results"))
   dir.create(paste0(path, "/02_Analysis/03_Figures"))
   dir.create(paste0(path, "/02_Analysis/04_Tables"))
-
+  
   dir.create(paste0(path, "/03_Manuscript"))
   dir.create(paste0(path, "/03_Manuscript/01_Text"))
   dir.create(paste0(path, "/03_Manuscript/02_Final_figures"))
-
+  
   dir.create(paste0(path, "/04_Presentation"))
-
+  
   dir.create(paste0(path, "/05_Misc"))
-
+  
   if (include_analysis_for_publication) {
     dir.create(paste0(path, "/06_Analysis_for_publication"))
     dir.create(paste0(path, "/06_Analysis_for_publication/01_Scripts"))
@@ -43,7 +43,7 @@ standard_analysis <- function(
     dir.create(paste0(path, "/06_Analysis_for_publication/03_Figures"))
     dir.create(paste0(path, "/06_Analysis_for_publication/04_Tables"))
   }
-
+  
   # create a .gitignore file
   if (include_gitignore) {
     gitignore_content <- c(
@@ -60,10 +60,10 @@ standard_analysis <- function(
       "*.html"
     )
   }
-
+  
   gitignore_content <- paste0(gitignore_content, collapse = "\n")
   writeLines(gitignore_content, con = file.path(path, ".gitignore"))
-
+  
   # create a readme
   content <- c(
     "# Readme",
@@ -107,12 +107,16 @@ standard_analysis <- function(
   )
   content <- paste0(content, collapse = "\n")
   writeLines(content, con = file.path(path, "README.md"))
-
+  
   # initialise renv
   if (use_renv) {
-    renv::init(
-      project = normalizePath(path),
-      bare = TRUE
-    )
+    if ("renv" %in% rownames(installed.packages())) {
+      renv::init(
+        project = normalizePath(path),
+        bare = TRUE
+      )
+    } else {
+      warning("renv couldn't be used as the `renv` package is not installed. If you want to use renv, please first install it with `install.packages('renv')`")
+    }
   }
 }
