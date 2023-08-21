@@ -1,0 +1,22 @@
+Binding: standard_analysis
+Title: Standard analysis template
+Subtitle: A template for a standard data analysis geared towards scientific users.
+OpenFiles: README.md
+
+Parameter: include_analysis_for_publication
+Widget: CheckboxInput
+Label: Include Analysis for publication folder
+Default: Off
+Position: left
+
+Parameter: use_renv
+Widget: CheckboxInput
+Label: Use renv with this project
+Default: On
+Position: left
+
+Parameter: include_gitignore
+Widget: CheckboxInput
+Label: Create a .gitignore file
+Default: On
+Position: left
