@@ -1,6 +1,6 @@
 Package: analysistemplates
-Title: Creates a standard directory structure for scientific data analysis in RStudio.
-Version: 0.0.0.9000
+Title: Creates a standard folder structure for scientific data analysis in RStudio
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Jonas",
              family = "Hagenberg",
@@ -10,8 +10,10 @@ Authors@R:
       person(given = "Max Planck Institute of Psychiatry",
              role = "cph"))
 Description: This package provides an RStudio template that starts a new RStudio
-  project with a standard directory structure for scientific data analysis.
+  project with a standard folder structure for scientific data analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Suggests: 
+    renv
