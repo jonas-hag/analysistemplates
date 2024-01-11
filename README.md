@@ -10,6 +10,8 @@ start a new project in RStudio, this package provides the standard folder struct
 directly in your code editor. Also, it can help you improving reproducibility by
 using git and `renv`.
 
+![folder structure of the template](tools/overview_folder_structure.png)
+
 ## Installation
 
 ``` r
