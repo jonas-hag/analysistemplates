@@ -7,6 +7,7 @@
 #' @param ... additional parameters, currently not used
 #'
 #' @return no return values, just the folders and README are created
+#' @importFrom utils installed.packages
 #' @export
 standard_analysis <- function(
     path,
@@ -110,7 +111,7 @@ standard_analysis <- function(
   
   # initialise renv
   if (use_renv) {
-    if ("renv" %in% rownames(installed.packages())) {
+    if (requireNamespace("renv", quietly = TRUE)) {
       renv::init(
         project = normalizePath(path),
         bare = TRUE
