@@ -60,10 +60,11 @@ standard_analysis <- function(
       "04_Presentation",
       "*.html"
     )
+    
+    gitignore_content <- paste0(gitignore_content, collapse = "\n")
+    writeLines(gitignore_content, con = file.path(path, ".gitignore"))
+    
   }
-  
-  gitignore_content <- paste0(gitignore_content, collapse = "\n")
-  writeLines(gitignore_content, con = file.path(path, ".gitignore"))
   
   # create a readme
   content <- c(
